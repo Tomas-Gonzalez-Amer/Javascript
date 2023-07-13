@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Piedra, Papel o Tijera</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Buen dia</h1>
-    <script src="Js/app.js"></script>
+  <h1>Piedra, Papel o Tijera</h1>
+  
+  <div>
+    <h2>Opciones:</h2>
+    <div class="opcion" data-opcion="piedra">Piedra</div>
+    <div class="opcion" data-opcion="papel">Papel</div>
+    <div class="opcion" data-opcion="tijera">Tijera</div>
+    <div class="opcion" data-opcion="salir">Salir</div>
+  </div>
+
+  <h2>Puntajes:</h2>
+  <div>
+    <p>Jugador: <span id="puntajeJugador">0</span></p>
+    <p>Computadora: <span id="puntajeComputadora">0</span></p>
+  </div>
+
+  <script src="/Js/app.js"></script>
 </body>
 </html>
