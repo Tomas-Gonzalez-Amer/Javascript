@@ -1,5 +1,5 @@
 function calcular() {
-    const operacion = prompt("Ingrese una operación (+, -, *, /) o 'salir' para detenerse:");
+    const operacion = prompt("Ingrese una operación (+, -, *, /) o 'salir'");
     
     if (operacion === 'salir') {
         alert("Calculadora finalizada.");
@@ -8,7 +8,7 @@ function calcular() {
 
     if (operacion !== '+' && operacion !== '-' && operacion !== '*' && operacion !== '/') {
         alert("Operación no válida. Por favor, ingrese +, -, *, / o 'salir'.");
-        calcular(); // Volver a pedir una operación válida
+        calcular();
         return;
     }
 
@@ -17,7 +17,7 @@ function calcular() {
 
     if (isNaN(numero1) || isNaN(numero2)) {
         alert("Por favor, ingrese números válidos.");
-        calcular(); // Volver a pedir números válidos
+        calcular();
         return;
     }
 
@@ -36,7 +36,7 @@ function calcular() {
         case '/':
             if (numero2 === 0) {
                 alert("No se puede dividir por cero.");
-                calcular(); // Volver a pedir números y operación
+                calcular();
                 return;
             }
             resultado = numero1 / numero2;
@@ -44,7 +44,7 @@ function calcular() {
     }
 
     alert(`Resultado: ${resultado}`);
-    calcular(); // Continuar con más operaciones
+    calcular();
 }
 
-calcular(); // Iniciar la calculadora
+calcular();
