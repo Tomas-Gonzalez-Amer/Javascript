@@ -2,16 +2,16 @@ function calcular() {
     let continuar = true;
 
     while (continuar) {
-        const operacion = prompt("Ingrese una operación (+, -, *, /) o 'stop' para detenerse:");
+        const operacion = prompt("Ingrese una operación (+, -, *, /) o 'salir' para detenerse:");
 
-        if (operacion === 'stop') {
+        if (operacion === 'salir') {
             alert("Calculadora finalizada.");
             continuar = false;
             break;
         }
 
         if (operacion !== '+' && operacion !== '-' && operacion !== '*' && operacion !== '/') {
-            alert("Operación no válida. Por favor, ingrese +, -, *, / o 'stop'.");
+            alert("Operación no válida. Por favor, ingrese +, -, *, / o 'salir'.");
             continue;
         }
 
