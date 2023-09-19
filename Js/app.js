@@ -1,51 +1,50 @@
-function calcular() {
-    let continuar = true;
-
-    while (continuar) {
-        const operacion = prompt("Ingrese una operación (+, -, *, /) o 'salir' para detenerse:");
-
-        if (operacion === 'salir') {
-            alert("Calculadora finalizada.");
-            continuar = false;
-            break;
-        }
-
-        if (operacion !== '+' && operacion !== '-' && operacion !== '*' && operacion !== '/') {
-            alert("Operación no válida. Por favor, ingrese +, -, *, / o 'salir'.");
-            continue;
-        }
-
-        const numero1 = parseFloat(prompt("Ingrese el primer número:"));
-        const numero2 = parseFloat(prompt("Ingrese el segundo número:"));
-
-        if (isNaN(numero1) || isNaN(numero2)) {
-            alert("Por favor, ingrese números válidos.");
-            continue;
-        }
-
-        let resultado;
-
-        switch (operacion) {
-            case '+':
-                resultado = numero1 + numero2;
-                break;
-            case '-':
-                resultado = numero1 - numero2;
-                break;
-            case '*':
-                resultado = numero1 * numero2;
-                break;
-            case '/':
-                if (numero2 === 0) {
-                    alert("No se puede dividir por cero.");
-                    continue;
-                }
-                resultado = numero1 / numero2;
-                break;
-        }
-
-        alert(`Resultado: ${resultado}`);
+const juego = {
+    opciones: ["piedra", "papel", "tijera"],
+    puntajeUsuario: 0,
+    puntajeComputadora: 0,
+  };
+  
+  function obtenerOpcionComputadora() {
+    const indice = Math.floor(Math.random() * juego.opciones.length);
+    return juego.opciones[indice];
+  }
+  
+  function jugarRonda() {
+    const opcionUsuario = prompt("Elige: piedra, papel o tijera").toLowerCase();
+    const opcionComputadora = obtenerOpcionComputadora();
+  
+    if (!juego.opciones.includes(opcionUsuario)) {
+      alert("Esa no es una opción válida. Inténtalo de nuevo.");
+      return;
     }
-}
-
-calcular(); // Iniciar la calculadora
+  
+    alert(`Computadora eligió: ${opcionComputadora}`);
+  
+    if (opcionUsuario === opcionComputadora) {
+      alert("Empate.");
+    } else if (
+      (opcionUsuario === "piedra" && opcionComputadora === "tijera") ||
+      (opcionUsuario === "papel" && opcionComputadora === "piedra") ||
+      (opcionUsuario === "tijera" && opcionComputadora === "papel")
+    ) {
+      alert("¡Ganaste esta ronda!");
+      juego.puntajeUsuario++;
+    } else {
+      alert("¡La computadora ganó esta ronda!");
+      juego.puntajeComputadora++;
+    }
+  }
+  
+  function jugarPiedraPapelTijera() {
+    while (true) {
+      jugarRonda();
+      alert(`Puntuación:\nUsuario: ${juego.puntajeUsuario}\nComputadora: ${juego.puntajeComputadora}`);
+      const seguirJugando = confirm("¿Hacemos otra ronda?");
+      if (!seguirJugando) {
+        break;
+      }
+    }
+  }
+  
+  jugarPiedraPapelTijera();
+  
